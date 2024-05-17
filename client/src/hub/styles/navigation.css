@@ -1,0 +1,141 @@
+.navigation{
+    width: 100%;
+    height: 80px;
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    font-family: 'Roboto', sans-serif;
+    justify-content: space-between;
+    border-radius: 10px;
+    overflow: hidden;
+    z-index: 2000;
+    color: rgb(22, 94, 154);
+}
+.nav-left{
+    /* float: left; */
+    flex: 1;
+}
+.nav-right{
+    flex: 1;
+    display: flex;
+    /* float: right; */
+    justify-content: space-evenly;
+}
+.nav-right a{
+    text-decoration: none;
+    color: rgb(22, 94, 154);
+    font-weight: bold;
+    font-size: 18px;
+}
+.sidebarMenu a{
+    text-decoration: none;
+    /* color:black; */
+    font-weight: bold;
+    font-size: 18px;
+}
+.nav-right a:hover{
+   font-size: 20px;
+   font-weight: bolder;
+}
+.sidebar{
+    display: none;
+
+}
+
+#burgerbar {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 20px;
+    cursor: pointer; /* Change cursor to pointer for better UX */
+  }
+  
+  #burgerbar span {
+    width: 100%;
+    height: 3px;
+    background-color:rgb(22, 94, 154); /* Adjust the color of burger bar lines */
+  }
+
+  .sidebarMenu {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100px; /* Adjust the top position according to your design */
+    left: 0;
+    width: 100%;
+    color: black;
+    height: 69vh;
+    transition: all 0.3s ease-in-out; /* Transition effect */
+
+    background: rgba(255, 255, 255, 0.997);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(17.3px);
+    -webkit-backdrop-filter: blur(17.3px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    z-index: 1000;
+  }
+  
+  .show {
+    display: flex;
+  }
+  .sidebarMenu a{
+    margin: 20px;
+    
+  }
+  .sidebarMenu a:hover{
+    margin: 20px;
+    font-weight: bolder;
+    font-size: 20px;
+    
+  }
+
+.selected{
+    border-bottom: 2px solid rgb(22, 94, 154);
+    color: rgb(22, 94, 154);
+}
+.sidebarMenu .selected{
+    border-bottom: 2px solid black;
+}
+
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 3;
+  }
+  
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .dropdown-content a:hover {background-color: #ddd;}
+  
+  .dropdown:hover .dropdown-content {display: block;}
+  
+  .dropdown:hover .dropbtn {background-color: #3e8e41;}
+@media (max-width: 767px) {
+    .nav-right{
+        display: none;
+    }
+    .sidebar{
+        display: block;
+    }
+}

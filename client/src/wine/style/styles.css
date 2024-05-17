@@ -1,0 +1,135 @@
+.wine-navigation-right{
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    margin: 50px;
+    width: 100%;
+    /* height: 40px; */
+    overflow: auto;
+    max-width: 400px;
+    
+}
+.wine-navigation-left{
+    flex: 1;
+    margin: 50px;
+}
+.wine-navigation-right a{
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: bold;
+    min-width: 50px;
+}
+.wineSelected{
+    border-bottom: 2px solid rgb(22, 94, 154);
+    color: rgb(22, 94, 154);
+}
+
+.homebackgroundTitle{
+    color: white;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.homebackgroundTitle a{
+    color: white;
+    border: 1px solid white; 
+    padding: 5px; 
+    text-decoration: none; 
+    font-weight: bold;
+    border-radius: 5px;
+    
+}
+.homebackgroundTitle a:hover{
+    background-color: rgb(15, 15, 14);
+}
+.wineAbout{
+    padding-top: 80px;
+    width: 100%;
+    height: 100%;
+    /* display: flex;
+    justify-content: center; */
+}
+.wineAboutbackground{
+    width: 100%;
+    height: 40vh;
+    border-radius: 10px;
+    background-color: rgb(255, 255, 255);
+    /* background-size: cover; */
+    object-fit: cover;
+}
+
+.wineProducts{
+    padding-top: 80px;
+    width: 100%;
+    height: 100%;
+    margin-bottom: 50px;
+}
+.wineCards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Dynamic grid with minimum item width */
+    grid-gap: 20px; /* Margin between wine cards */
+}
+
+.wineCard {
+    text-align: center;
+    max-width: 300px;
+    width: auto;
+    height: auto;
+    background-color: aliceblue;
+    border-radius: 20px;
+    padding-bottom: 10px;
+}
+
+.wineCard img {
+    /* max-width: 200px; Maximum width of the wine card image */
+    width: 95%;
+    margin-top: 5px;
+    height: 350px; /* Height of the wine card image */
+    background-size: cover; /* Background size of the wine card image */
+    border-radius: 10px;
+}
+
+/* #productshow{
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    padding: 10px;
+} */
+#productshow p{
+    background-color: rgba(240, 248, 255, 0.857);
+    padding: 1%;
+    border-radius: 5px;
+    font-size: 10px;
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+}
+
+.wineCard h2 {
+    margin-top: 10px;
+}
+
+.wineCard p {
+    margin: 5px;
+    font-size: smaller;
+    text-align: left;
+}
+
+.winenews{
+    padding-top: 80px;
+    width: 100%;
+    height: 100%;
+}
+
+#reviewpage input{
+    color: red;
+    height: 50%;
+    border-radius: 5px;
+    overflow: auto;
+}
+@media (max-width: 768px) {
+    .wineCards {
+        grid-template-columns: repeat(2, 1fr); /* 2 items per row on small screens */
+    }
+}

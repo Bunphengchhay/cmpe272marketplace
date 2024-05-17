@@ -1,0 +1,89 @@
+.navigation{
+    width: 100%;
+    height: 65px;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+}
+.nav-left{
+    flex: 2;
+}
+.nav-left a{
+    text-decoration: none;
+    color: rgb(22, 94, 154);
+    cursor: pointer;
+}
+.nav-right{
+    flex: 2;
+    display: flex;
+    justify-content: space-between;
+}
+.nav-right a{
+    text-decoration: none;
+    color:  rgb(22, 94, 154);
+    z-index: 2000;
+}
+.selected{
+    border-bottom: 2px solid rgb(22, 94, 154);
+    color: rgb(22, 94, 154);
+}
+
+.sidebar{
+    display: none;
+
+}
+
+#burgerbar {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 20px;
+    cursor: pointer; /* Change cursor to pointer for better UX */
+    z-index: 3000;
+}
+  
+  #burgerbar span {
+    width: 100%;
+    height: 3px;
+    background-color:rgb(22, 94, 154); /* Adjust the color of burger bar lines */
+    z-index: 3000;
+}
+
+.sidebarMenu{
+    width: 100%;
+    background: white;
+    height: 50vh;
+    top: 70px;
+    left:0;
+    position: fixed;
+    z-index: 2000;
+    /* flex-direction: column; */
+    display: block;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(17.3px);
+    -webkit-backdrop-filter: blur(17.3px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    
+}
+.sidebarMenu.shows{
+    display: none;
+
+}
+
+.sidebarMenu a{
+    display: inline-block;
+    width: 100%;
+    margin: 10px;
+    text-decoration: none;
+    color: rgb(22, 94, 154);
+}
+@media (max-width: 767px) {
+    .nav-right{
+        display: none;
+    }
+    .sidebar{
+        display: block;
+    }
+
+}

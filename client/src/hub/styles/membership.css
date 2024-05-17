@@ -1,0 +1,47 @@
+/* .containerCards{
+    width: 100%;
+    height: auto;
+}
+
+.card{
+    width: 100%;
+    display: flex;
+} */
+.membership-table{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    overflow: auto;
+}
+table{
+    min-width: 800px;
+}
+.tablebar{
+    background-color: rgb(22, 94, 154);
+    color: white;
+}
+.searchBar{
+    width: 95%;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+    background-color: aliceblue;
+    align-items: center;
+}
+.searchBar input{
+    border-style: none;
+    width: 200px;
+    height: 40px;
+    background-color: aliceblue;
+    border-radius: 10px;
+}
+
+@media (max-width: 767px) {
+    .membership-table{
+        justify-content: flex-start;
+    }
+    .membership-table th, td{
+        font-size: small;
+    }
+}

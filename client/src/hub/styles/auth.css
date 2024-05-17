@@ -1,0 +1,42 @@
+.login{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+}
+
+.login-container{
+    /* background-color: aliceblue;
+    border-radius: 20px; */
+    width: 100%;
+    min-height: 200px;
+    background-color: aliceblue;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+
+}
+.login-container div{
+    display: flex;
+    margin: 5px;
+}
+.login-container div p{
+    min-width: 100px;
+    font-size: small;
+}
+input{
+    border: none;
+    width: 100%;
+}
+button{
+    border: none;
+    border-radius: 5px;
+    width: 80px;
+    font-size: small;
+    background-color: rgb(207, 230, 250);
+    margin: 5px;
+}
+button:hover{
+    border: solid 1px white;
+}
