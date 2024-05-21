@@ -68,9 +68,11 @@ function DisplayCard({ data, setProductInformations, setRefreshProduct }) {
       // navigate("/products/wine/wineprofile"); // Navigate after setting product information
       // Determine whether the product is wine or cocktail and navigate accordingly
       if (prod.wine_id) {
+        console.log(prod.wine_name);
         navigate(`/products/wine/wineprofile/wine/${prod.wine_name}/${prod.wine_id}`);
       } else if (prod.cocktail_id) {
-        navigate(`/products/cocktail/wineprofile/cocktail/${prod.cocktail_name}/${prod.cocktail_id}`);
+        console.log(prod.cocktail_name);
+        navigate(`/products/wine/wineprofile/cocktail/${prod.cocktail_name}/${prod.cocktail_id}`);
       }
     };
   
