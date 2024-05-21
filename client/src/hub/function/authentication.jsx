@@ -15,6 +15,14 @@ export function AuthProvider(props) {
   const [toggleLogon, setToggleLogon] = useState(
     localStorage.getItem('isAuthenticated') === 'true' ? 'Logout' : 'Login'
   );
+  const [productInformations, setProductInformations] = useState(
+    localStorage.getItem('productInformations') ? localStorage.getItem('productInformations') : null
+  );
+  const [comments, setComments] = useState(
+    localStorage.getItem('allComments') ? JSON.parse(localStorage.getItem('allComments')) : []
+  );
+  const [isReviewed, setIsReviewed] = useState(false);
+  const [refreshProducts, setRefreshProducts] = useState(false);
 
   useEffect(() => {
     const storedUser = localStorage.getItem('user');
@@ -98,108 +106,8 @@ export function AuthProvider(props) {
 
 
   return (
-    <AuthContext.Provider value={{isAuthenticated, user, login, logout, toggleLogon, signup}}>
+    <AuthContext.Provider value={{isAuthenticated, user, login, logout, toggleLogon, signup, productInformations, setProductInformations, comments, setComments, isReviewed, setIsReviewed, refreshProducts, setRefreshProducts}}>
       {props.children}
     </AuthContext.Provider>
   );
 }
-
-// import React, { createContext, useState } from 'react';
-// import Logout from "../authentication/logout";
-// import Auth from "../authentication/getAuth";
-
-// const AuthContext = createContext();
-
-// const AuthProvider = ({ children }) => {
-//   const [isAuthenticated, setIsAuthenticated] = useState(
-//     localStorage.getItem('isAuthenticated') === 'true'
-//   );
-
-//   const login = (firstname, lastname, useremail, password) => {
-//     // Perform authentication logic
-//     // Assuming authentication is successful
-//     setIsAuthenticated(true);
-//     localStorage.setItem('isAuthenticated', 'true');
-//   };
-
-//   const logout = () => {
-//     localStorage.removeItem('isAuthenticated');
-//     setIsAuthenticated(false);
-//   };
-
-//   return (
-//     <AuthContext.Provider value={{ isAuthenticated, login, logout }}>
-//       {children}
-//     </AuthContext.Provider>
-//   );
-// };
-
-// export { AuthContext, AuthProvider };
-
-
-
-
-// class AuthenticationWrapper extends React.Component {
-//     constructor() {
-//         super();
-//         this.state = {
-//             isAuthenticated: localStorage.getItem("isAuthenticated") === "true",
-//             firstname: null,
-//             lastname: null,
-//             useremail: null,
-//             userphone: null,
-//             useraddress: null,
-//         };
-//         this.logout = this.logout.bind(this);
-//         this.login = this.login.bind(this);
-//         this.signup = this.signup.bind(this);
-//         this.isAuthorized = this.isAuthorized.bind(this);
-//     }
-
-//     isAuthorized() {
-//         return this.state.isAuthenticated;
-//     }
-
-//     login(firstname, lastname, useremail, password) {
-//         const isAuthenticated = Auth(useremail, password);
-//         if (isAuthenticated) {
-//             this.setState({
-//                 isAuthenticated: true,
-//                 firstname: firstname,
-//                 lastname: lastname,
-//                 useremail: useremail,
-//             }, () => {
-//                 localStorage.setItem("isAuthenticated", "true");
-//             });
-//         }
-//         return isAuthenticated;
-//     }
-
-//     signup(firstname, lastname, password, useremail, userphones, useraddress) {
-//         this.setState({
-//             isAuthenticated: true,
-//             firstname: firstname,
-//             lastname: lastname,
-//             useremail: useremail,
-//             userphone: userphones,
-//             useraddress: useraddress,
-//         }, () => {
-//             localStorage.setItem("isAuthenticated", "true");
-//         });
-//     }
-
-//     logout() {
-//         Logout(); // Call logout function
-//         this.setState({
-//             isAuthenticated: false,
-//             firstname: null,
-//             lastname: null,
-//             useremail: null,
-//             userphone: null,
-//             useraddress: null,
-//         });
-//     }
-// }
-
-// export default AuthenticationWrapper;
-

@@ -4,10 +4,10 @@ import thehub from '../artifact/thehub.png'
 import About from './about';
 function Home() {
     return ( 
-    <div style={{width: '100%', height: '100%'}} className='mainhome'>
+    <div style={{width: '100%', height: 'auto'}} className='mainhome'>
         {/* <div style={{width: '100%', height: '100%', display: 'flex', justifyContent: 'center'}}> */}
             <div className="homebackground">
-                    <div style={{width: '100%', height: '500px'}}>
+                    <div style={{width: '100%', height: 'auto'}}>
                     <div className="area" >
                     <div style={{width: '100%', height: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
                         <div class="context">

@@ -13,13 +13,16 @@ import Crabs from '../../crab/crab';
 import Socks from '../../socks/socks';
 import WineHome from '../../wine/pages/home';
 import WineAbout from '../../wine/pages/about';
-import WineProducts from '../../wine/pages/products';
+import WProducts from '../../wine/pages/products';
 import WineNews from '../../wine/pages/news';
 import Review from '../../wine/pages/review';
 import User from '../pages/user';
+import WineProfile from '../../wine/pages/wineProfile';
+import usePageTracking from '../hook/usePageTracking';
 
 
 function AppRouter() {
+  usePageTracking();
   return (
    <div>
       <Routes>
@@ -37,8 +40,11 @@ function AppRouter() {
               <Route path = "" element={<WineHome/>}/>
               <Route path = "winehome" element={<WineHome/>}/>
               <Route path = "wineabout" element={<WineAbout/>}/>
-              <Route path = "WineProducts" element={<WineProducts/>}/>
+              <Route path = "WineProducts" element={<WProducts/>}/>
               <Route path = "WineNews" element={<WineNews/>}/>
+              {/* <Route path = "wineprofile" element={<WineProfile/>}/> */}
+              <Route path="wineprofile/wine/:wineName/:wineId" element={<WineProfile />} />
+              <Route path="wineprofile/cocktail/:cocktailName/:cocktailId" element={<WineProfile />} />
           </Route>
           <Route path="crabs" element={<Crabs/>}/>
           <Route path="socks" element={<Socks/>}/>

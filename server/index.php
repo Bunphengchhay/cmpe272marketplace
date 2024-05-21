@@ -17,7 +17,23 @@ function signup(){
     require_once('./authentication/signup.php');
 }
 
+function wineproduct(){
+    require_once('./products/products.php');
+}
 
+function updateComment(){
+    require_once('./products/comment.php');
+}
+function getComment(){
+    require_once('./products/getComment.php');
+}
+function getPerProductInfo(){
+    require_once('./products/getPerProductInfo.php');
+}
+
+function getVisitedProducts(){
+    require_once('./googleanalytics/getVisitedPage.php');
+}
 // Check the requested API path
 $path = isset($_SERVER['PATH_INFO']) ? $_SERVER['PATH_INFO'] : '';
 
@@ -35,8 +51,23 @@ switch ($path) {
     case '/login':
         echo login();
         break;
+    case '/products':
+        echo wineproduct();
+        break;
+    case '/updateComments':
+        echo updateComment();
+        break;
+    case '/getComments':
+        echo getComment();
+        break;
+    case '/getPerProductInfo':
+        echo getPerProductInfo();
+        break;
+    case '/getVisitedProducts':
+        echo getVisitedProducts();
+        break;
     default:
-        echo '<h1> hello hello world </h1>';
+        echo '<h1> world </h1>';
         break;
 }
 // echo '<h1> hello world</h1>';

@@ -128,8 +128,61 @@
     border-radius: 5px;
     overflow: auto;
 }
+
+.wineprofileinformation {
+    display: flex; /* Use flexbox */
+    width: 100%;
+    height: 50vh;
+    margin-bottom: 5vh;
+    /* background-color: aliceblue; */
+}
+
+.wineprofileinformation .left {
+    flex: 1; /* Take up equal space */
+    /* box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: aliceblue;
+}
+.wineprofileinformation .left img{
+    width: 90%;
+    height: 90%;
+    border-radius: 10px;
+    max-width: 400px;
+   
+    
+}
+
+
+.wineprofileinformation .right {
+    flex: 1;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: aliceblue;
+}
 @media (max-width: 768px) {
     .wineCards {
         grid-template-columns: repeat(2, 1fr); /* 2 items per row on small screens */
+    }
+    .wineprofileinformation {
+        flex-direction: column; /* Change to column layout on small screens */
+        margin-bottom: 10vh;
+    }
+
+    .wineprofileinformation .left {
+        flex: none; /* Reset flex value */
+        width: 100%; /* Set width to 100% */
+        height: 100%;
+    }
+    .wineprofileinformation .right{
+        flex: none;
+        width: 100%;
+        height: auto;
+        margin-bottom: 10px;
+        background-color: aliceblue;
+        display: flex;
+        justify-content: center;
     }
 }

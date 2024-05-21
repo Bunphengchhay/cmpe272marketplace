@@ -11,7 +11,6 @@ import { AuthProvider } from './hub/function/authentication';
 function App() {
   return (
       <div className='App'>
-
       <div style={{width: '100vw', minHeight: '100vh'}}>
         <BrowserRouter>
           <div style={{width: '100vw', display: 'flex', justifyContent: 'center'}}>
