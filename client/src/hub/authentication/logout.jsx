@@ -6,15 +6,15 @@ function  Logout() {
     if (auth) {
         localStorage.setItem('isAuthenticated', 'false');
         localStorage.removeItem('isAuthenticated');
-        console.log('logout sucessfully');
+        // console.log('logout sucessfully');
         return auth;
     }
     else if(auth === 'false') {
-        console.log('Unsucessfully logged out');
+        // console.log('Unsucessfully logged out');
         return auth;
     }
     else{
-        console.log('already logged out');
+        // console.log('already logged out');
         return true;
     }
 }

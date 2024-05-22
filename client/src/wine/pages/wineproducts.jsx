@@ -3,11 +3,12 @@ import React from "react";
 import { endpoint } from "../../hub/config/config";
 import {Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../hub/function/authentication";
+// import VisitedProducts from "../../hub/function/getProductVeiwer";
+import GetVisitedProducts from "../../wine/components/visitedProduct";
 
 function WineProducts() {
   const [products, setProducts] = useState(JSON.parse(sessionStorage.getItem('products')) || []);
   const {productInformations, setProductInformations, isReviewed, setIsReviewed, refreshProducts, setRefreshProducts} = useAuth();
-
   useEffect(() => {
       if(refreshProducts){
       fetchProducts();
@@ -25,11 +26,11 @@ function WineProducts() {
       .then(response => response.json())
       .then(data => {
         setProducts(data);
+        console.log(data)
         sessionStorage.setItem('products', JSON.stringify(data));
       })
       .catch(error => console.error(error));
   }
-
   return (
     <div className="wineProducts">
       <div style={{ textAlign: 'center', margin: '50px' }}>
@@ -42,6 +43,12 @@ function WineProducts() {
         <p style={{ fontSize: 'small' }}> ecstasy, San Jose</p>
       </div>
       <DisplayCard data={products?.cocktail ? products.cocktail : cocktail_products} setProductInformations={setProductInformations} />
+
+      <div style={{marginTop: '50px', marginBottom: '50px'}}>
+        <h1 style={{ fontSize: 'medium', textAlign: 'center' }}> Most Visited Products</h1>
+        <p style={{ fontSize: 'small', textAlign: 'center' }}> The Top 5 Visited Products in this week.</p>
+        <GetVisitedProducts/>
+      </div>
     </div>
   );
 }

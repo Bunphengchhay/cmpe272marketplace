@@ -27,7 +27,7 @@ function Navigation() {
                     <NavLink to="/products" className={({isActive}) => isActive ? "selected": "non-active-class" }> Products </NavLink>
                     <NavLink to="/membership" className={({isActive}) => isActive ? "selected": "non-active-class" }> Membership </NavLink>
                     <NavLink to="/contact" className={({isActive}) => isActive ? "selected": "non-active-class" }> Contact </NavLink>
-                    <NavLink to="/Review" className={({isActive}) => isActive ? "selected": "non-active-class" }> Review </NavLink>
+                    <NavLink to="/Review" className={({isActive}) => isActive ? "selected": "non-active-class" }> Best Products </NavLink>
                     {toggleLogon === 'Logout' && <NavLink to="/user" className={({isActive}) => isActive ? "selected": "non-active-class" }> Profile</NavLink>}
                     {toggleLogon === 'Login' && <NavLink to="/login" className={({isActive}) => isActive ? "selected": "non-active-class" }> {toggleLogon} </NavLink>}
                 </div>
@@ -44,7 +44,7 @@ function Navigation() {
                     <NavLink to="/products" className={({isActive}) => isActive ? "selected side": "non-active-class" }> Products </NavLink>
                     <NavLink to="/membership" className={({isActive}) => isActive ? "selected side": "non-active-class" }> Membership </NavLink>
                     <NavLink to="/contact" className={({isActive}) => isActive ? "selected side": "non-active-class" }> Contacts </NavLink>
-                    <NavLink to="/review" className={({isActive}) => isActive ? "selected side": "non-active-class" }> Reviews </NavLink>
+                    <NavLink to="/review" className={({isActive}) => isActive ? "selected side": "non-active-class" }> Best Products </NavLink>
                     {toggleLogon === 'Logout' && <NavLink to="/user" className={({isActive}) => isActive ? "selected": "non-active-class" }> Profile</NavLink>}
                     {toggleLogon === 'Login' && <NavLink to="/login" className={({isActive}) => isActive ? "selected": "non-active-class" }> {toggleLogon} </NavLink>}
                  

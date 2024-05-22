@@ -16,9 +16,9 @@ function Membership() {
     useEffect(() => {
         if(toggleLogon === 'Logout' && membership.length <0) {
         fetchMembership();
-        console.log('membership is fetched');
+        // console.log('membership is fetched');
         }
-        console.log('membership is not fetched');
+        // console.log('membership is not fetched');
     }, [toggleLogon]);
 
     const fetchMembership = () => {

@@ -5,67 +5,126 @@ header("Access-Control-Allow-Headers: Content-Type");
 header("Content-Type: application/json");
 
 require_once __DIR__ . '/../vendor/autoload.php';
-
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../');
 $dotenv->load();
+$GA_KEY = $_ENV['GA_JSON_KEY'] ?? '';
+$KEY_FILE_LOCATION = __DIR__ . '/cmpe272-424008-d33b50e264f8.json';
 
-// Read the JSON key content from the environment variable
-$jsonKeyContent = $_ENV['GA_JSON_KEY'] ?? '';
+$propertyId = '442169121';
+$analytics = initializeAnalytics();
+$results = getResults($analytics, $propertyId);
+printResults($results);
 
-// Decode the JSON key content to an array
-$keyArray = json_decode($jsonKeyContent, true);
-if (json_last_error() !== JSON_ERROR_NONE) {
-    die(json_encode(['error' => 'Failed to decode JSON key: ' . json_last_error_msg()]));
+function initializeAnalytics()
+{
+    // Creates and returns the Analytics Data API service object.
+
+    // Use the developers console and download your service account
+    // credentials in JSON format. Place them in this directory or
+    // change the key file location if necessary.
+    $KEY_FILE_LOCATION = __DIR__ . '/cmpe272-424008-d33b50e264f8.json';
+    // Create and configure a new client object.
+    $client = new Google_Client();
+    $client->setApplicationName("Hello Analytics Reporting");
+    $client->setAuthConfig($KEY_FILE_LOCATION);
+    $client->setScopes(['https://www.googleapis.com/auth/analytics.readonly']);
+    $analytics = new Google_Service_AnalyticsData($client);
+
+    return $analytics;
 }
 
-// Create and configure a new client object.
-$client = new Google_Client();
-$client->setApplicationName('Google Analytics Reporting for Products');
-$client->setScopes(['https://www.googleapis.com/auth/analytics.readonly']);
-$client->setAuthConfig($keyArray);
+function getResults($analytics, $propertyId)
+{
+    // Calls the Analytics Data API and queries for page location data
+    // for the last seven days.
+    $request = new Google_Service_AnalyticsData_RunReportRequest([
+        'property' => 'properties/' . $propertyId,
+        'dateRanges' => [
+            new Google_Service_AnalyticsData_DateRange([
+                'startDate' => '7daysAgo',
+                'endDate' => 'today',
+            ]),
+        ],
+        'dimensions' => [
+            new Google_Service_AnalyticsData_Dimension([
+                'name' => 'pagePath',
+            ]),
+        ],
+        'metrics' => [
+            new Google_Service_AnalyticsData_Metric([
+                'name' => 'screenPageViews',
+            ]),
+        ],
+        'dimensionFilter' => new Google_Service_AnalyticsData_FilterExpression([
+            'orGroup' => new Google_Service_AnalyticsData_FilterExpressionList([
+                'expressions' => [
+                    new Google_Service_AnalyticsData_FilterExpression([
+                        'filter' => new Google_Service_AnalyticsData_Filter([
+                            'fieldName' => 'pagePath',
+                            'stringFilter' => new Google_Service_AnalyticsData_StringFilter([
+                                'matchType' => 'PARTIAL_REGEXP',
+                                'value' => 'wineprofile/wine/.*',
+                            ]),
+                        ]),
+                    ]),
+                    new Google_Service_AnalyticsData_FilterExpression([
+                        'filter' => new Google_Service_AnalyticsData_Filter([
+                            'fieldName' => 'pagePath',
+                            'stringFilter' => new Google_Service_AnalyticsData_StringFilter([
+                                'matchType' => 'PARTIAL_REGEXP',
+                                'value' => 'wineprofile/cocktail/.*',
+                            ]),
+                        ]),
+                    ]),
+                ],
+            ]),
+        ]),
+    ]);
 
-$analytics = new Google_Service_AnalyticsReporting($client);
-
-// Create the DateRange object.
-$dateRange = new Google_Service_AnalyticsReporting_DateRange();
-$dateRange->setStartDate("30daysAgo");
-$dateRange->setEndDate("today");
-
-// Create the Metrics object.
-$pageviews = new Google_Service_AnalyticsReporting_Metric();
-$pageviews->setExpression("ga:pageviews");
-$pageviews->setAlias("pageviews");
-
-// Create the Dimension object for pagePath.
-$dimensions = new Google_Service_AnalyticsReporting_Dimension();
-$dimensions->setName("ga:pagePath");
-
-// Create Dimension Filter to include only wine and cocktail product pages.
-$dimensionFilter = new Google_Service_AnalyticsReporting_DimensionFilter();
-$dimensionFilter->setDimensionName('ga:pagePath');
-$dimensionFilter->setOperator('REGEXP');
-$dimensionFilter->setExpressions(['^/wineprofile/(wine|cocktail)/.+/.+$']);
-
-// Create Dimension Filter Clause
-$dimensionFilterClause = new Google_Service_AnalyticsReporting_DimensionFilterClause();
-$dimensionFilterClause->setFilters([$dimensionFilter]);
-
-// Create the ReportRequest object.
-$request = new Google_Service_AnalyticsReporting_ReportRequest();
-$request->setViewId('YOUR_VIEW_ID'); // Replace with your actual View ID
-$request->setDateRanges($dateRange);
-$request->setDimensions(array($dimensions));
-$request->setMetrics(array($pageviews));
-$request->setDimensionFilterClauses(array($dimensionFilterClause));
-
-// Add the request to an array.
-$body = new Google_Service_AnalyticsReporting_GetReportsRequest();
-$body->setReportRequests(array($request));
-
-// Make the data request.
-try {
-    $response = $analytics->reports->batchGet($body);
-    echo json_encode($response);
-} catch (Exception $e) {
-    echo json_encode(['error' => 'There was an error creating the report: ' . $e->getMessage()]);
+    return $analytics->properties->runReport('properties/' . $propertyId, $request);
 }
+
+function printResults($results)
+{
+    // Parses the response from the Analytics Data API and prints the results.
+    $products = [];
+    if (count($results->getRows()) > 0) {
+        foreach ($results->getRows() as $row) {
+            $pagePath = $row->getDimensionValues()[0]->getValue();
+            $pageviews = $row->getMetricValues()[0]->getValue();
+
+            if (preg_match('/wineprofile\/wine\/([^\/]+)\/([^\/]+)/', $pagePath, $matches)) {
+                $productType = 'wine';
+                $productName = $matches[1];
+                $productId = $matches[2];
+            } elseif (preg_match('/wineprofile\/cocktail\/([^\/]+)\/([^\/]+)/', $pagePath, $matches)) {
+                $productType = 'cocktail';
+                $productName = $matches[1];
+                $productId = $matches[2];
+            } else {
+                continue;
+            }
+
+            if (!isset($products[$productId])) {
+                $products[$productId] = [
+                    'id' => $productId,
+                    'name' => $productName,
+                    'type' => $productType,
+                    'pageviews' => 0,
+                ];
+            }
+
+            $products[$productId]['pageviews'] += $pageviews;
+        }
+
+        uasort($products, function($a, $b) {
+            return $b['pageviews'] - $a['pageviews'];
+        });
+
+        echo json_encode(array_values($products), JSON_PRETTY_PRINT);
+    } else {
+        echo json_encode(['message' => 'No results found.']);
+    }
+}
+
+?>

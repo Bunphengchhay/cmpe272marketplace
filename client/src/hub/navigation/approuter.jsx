@@ -8,6 +8,7 @@ import Logout from '../authentication/logout';
 import Membership from '../pages/membership';
 import Products from '../pages/product';
 import Wine from '../../wine/pages/wine';
+import BestProducts from '../pages/bestproduct';
 // import WineHome from '../../wine/pages/wine/../home';
 import Crabs from '../../crab/crab';
 import Socks from '../../socks/socks';
@@ -33,7 +34,7 @@ function AppRouter() {
         <Route path = "/login" element={<Login/>}/>
         <Route path = "/logout" element={<Logout/>}/>
         <Route path = "/membership" element={<Membership/>}/>
-        <Route path ="/review" element={<Review/>}/>
+        <Route path ="/review" element={<BestProducts/>}/>
         <Route path ="/user" element={<User/>}/>
         <Route path = "/products" element={<Products/>}>
           <Route path="wine" element={<Wine/>}>

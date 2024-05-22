@@ -37,8 +37,7 @@ if ($result->num_rows > 0) {
             'lastname' => $row['last_name'],
             'email' => $row['email'],
             'home_address' => $row['home_address'],
-            'home_phone' => $row['home_phone'],
-            'cell_phone' => $row['cell_phone']
+            'home_phone' => $row['home_phone']
         );
     }
     // Return the array containing all users

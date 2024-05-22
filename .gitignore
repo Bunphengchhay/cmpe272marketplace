@@ -5,3 +5,7 @@ node_modules/
 
 
 pencephp.pem
+server/googleanalytics/cmpe272-424008-d33b50e264f8.json
+# Ensure the server/googleanalytics directory itself is not ignored
+!server/googleanalytics/
+!server

@@ -1,0 +1,13 @@
+.visitedProducts{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(11.25rem, 100%), 1fr));
+    grid-gap:1rem;
+    margin-top: 50px;
+}
+.visitedCard{
+    background-color: aliceblue;
+    text-align: center;
+    border-radius: 5px;
+    padding: 10px;
+}
