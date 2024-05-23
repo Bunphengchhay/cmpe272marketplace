@@ -1,7 +1,7 @@
-import GetVisitedProducts from "../../wine/components/visitedProduct";
 import { useState, useEffect } from "react";
 import VisitedProducts from "../function/getProductVeiwer";
 import twoMarketTraffics from "../function/getTwoMarketTraffic";
+
 function BestProducts() {
   const [visitedProducts, setVisitedProducts] = useState([]);
   const [error, setError] = useState(null);
@@ -10,77 +10,92 @@ function BestProducts() {
   const [twoTraffics, setTwoTraffics] = useState([]);
 
   useEffect(() => {
-      getVisitedProducts();
-      getTwoVisitedProducts()
-      .then((data) => {
-        setVisitedProducts(getTop5Products(alcohol, twoTraffics));
-      })
-      .catch((error) => {
-          console.error('Error in useEffect:', error);
-      });
-      setVisitedProducts(getTop5Products(sock, twoTraffics));
-  }, []);
-  
-  const getVisitedProducts = async () => {
-      setLoading(true);
-      const data = await VisitedProducts();
-      if (data) {
-          // Restrict to top 5 products
-          const top5Products = data.slice(0, 5);
-          setAlcohol(top5Products);
-      } else {
-          setError('Failed to fetch visited products.');
+    const fetchData = async () => {
+      try {
+        setLoading(true);
+        const alcoholData = await getVisitedProducts();
+        const twoTrafficData = await getTwoVisitedProducts();
+        setVisitedProducts(getTop5Products(alcoholData, twoTrafficData));
+      } catch (err) {
+        setError('Failed to fetch visited products.');
+        console.error('Error fetching data:', err);
+      } finally {
+        setLoading(false);
       }
-      setLoading(false);
-  };
+    };
+
+    fetchData();
+  }, []);
 
   const getTwoVisitedProducts = async () => {
-    const data = await twoMarketTraffics();
-    if (data) {
-        // Restrict to top 5 products
+    try {
+      const data = await twoMarketTraffics();
+      if (data) {
         const twotrafficdata = data.slice(0, 5);
         setTwoTraffics(twotrafficdata);
-        return twotrafficdata; // Return the restricted data
-    } else {
-        setTwoTraffics([]); // Ensure state is updated with an empty array
-        setError('Failed to fetch visited products.');
-        return []; // Return an empty array
+        return twotrafficdata;
+      } else {
+        setTwoTraffics([]);
+        return [];
+      }
+    } catch (error) {
+      console.error('Error fetching two visited products:', error);
+      setTwoTraffics([]);
+      return [];
     }
-};
+  };
+
+  const getVisitedProducts = async () => {
+    try {
+      const data = await VisitedProducts();
+      if (data) {
+        const top5Products = data.slice(0, 5);
+        setAlcohol(top5Products);
+        return top5Products;
+      } else {
+        setError('Failed to fetch visited products.');
+        return [];
+      }
+    } catch (error) {
+      console.error('Error fetching visited products:', error);
+      setError('Failed to fetch visited products.');
+      return [];
+    }
+  };
+
   function getTop5Products(productList1, productList2) {
     const combined = [...productList1, ...productList2];
     combined.sort((a, b) => b.pageviews - a.pageviews);
     return combined.slice(0, 5);
-    }
+  }
 
-
-
-    return ( 
-        <div style={{marginTop: '50px', marginBottom: '50px'}}>
-        <h1 style={{ fontSize: 'medium', textAlign: 'center' }}> Most Visited Products</h1>
-        <p style={{ fontSize: 'small', textAlign: 'center' }}> Across Our MarketPlaces</p>
-        <p style={{ fontSize: 'small', textAlign: 'center' }}> The Top 5 Visited Products in this week.</p>
-        {loading && <p>Loading...</p>}
-        {!loading && (
+  return (
+    <div style={{ marginTop: '50px', marginBottom: '50px' }}>
+      <h1 style={{ fontSize: 'medium', textAlign: 'center' }}>Most Visited Products</h1>
+      <p style={{ fontSize: 'small', textAlign: 'center' }}>Across Our MarketPlaces</p>
+      <p style={{ fontSize: 'small', textAlign: 'center' }}>The Top 5 Visited Products this week.</p>
+      {loading && <p>Loading...</p>}
+      {!loading && (
         <div className="visitedProducts">
-            {visitedProducts?.map((product, k) => (
+          {visitedProducts?.map((product, k) => (
             <div className="visitedProduct" key={product.id || k}>
-                <div className="visitedCard">
+              <div className="visitedCard">
                 <h5 style={{ height: 30 }}>{product.name}</h5>
                 <p style={{ textAlign: 'left', margin: '5px' }}> - Type: {product.type}</p>
                 <p style={{ textAlign: 'left', margin: '5px' }}> - Visited: {product.pageviews}</p>
-                </div>
+              </div>
             </div>
-            ))}
+          ))}
         </div>
-        )}
-
-      </div>
-     );
+      )}
+      {error && <div>{error}</div>}
+    </div>
+  );
 }
 
 export default BestProducts;
 
+const test = [];
 const seafood = [
   {
       "id": "1",
