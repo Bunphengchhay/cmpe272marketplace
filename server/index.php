@@ -34,6 +34,10 @@ function getPerProductInfo(){
 function getVisitedProducts(){
     require_once('./googleanalytics/getVisitedPage.php');
 }
+
+function gethighTrafficMarket(){
+    require_once('./marketpalce/curlProductsTraffic.php');
+}
 // Check the requested API path
 $path = isset($_SERVER['PATH_INFO']) ? $_SERVER['PATH_INFO'] : '';
 
@@ -65,6 +69,9 @@ switch ($path) {
         break;
     case '/getVisitedProducts':
         echo getVisitedProducts();
+        break;
+    case '/getMarketTraffics':
+        echo gethighTrafficMarket();
         break;
     default:
         echo '<h1> world </h1>';

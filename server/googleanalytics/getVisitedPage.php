@@ -17,31 +17,22 @@ printResults($results);
 
 function initializeAnalytics()
 {
-    // Creates and returns the Analytics Data API service object.
-
-    // Use the developers console and download your service account
-    // credentials in JSON format. Place them in this directory or
-    // change the key file location if necessary.
     $KEY_FILE_LOCATION = __DIR__ . '/cmpe272-424008-d33b50e264f8.json';
-    // Create and configure a new client object.
     $client = new Google_Client();
     $client->setApplicationName("Hello Analytics Reporting");
     $client->setAuthConfig($KEY_FILE_LOCATION);
     $client->setScopes(['https://www.googleapis.com/auth/analytics.readonly']);
     $analytics = new Google_Service_AnalyticsData($client);
-
     return $analytics;
 }
 
 function getResults($analytics, $propertyId)
 {
-    // Calls the Analytics Data API and queries for page location data
-    // for the last seven days.
     $request = new Google_Service_AnalyticsData_RunReportRequest([
         'property' => 'properties/' . $propertyId,
         'dateRanges' => [
             new Google_Service_AnalyticsData_DateRange([
-                'startDate' => '7daysAgo',
+                'startDate' => '2024-05-01',
                 'endDate' => 'today',
             ]),
         ],
@@ -86,7 +77,6 @@ function getResults($analytics, $propertyId)
 
 function printResults($results)
 {
-    // Parses the response from the Analytics Data API and prints the results.
     $products = [];
     if (count($results->getRows()) > 0) {
         foreach ($results->getRows() as $row) {

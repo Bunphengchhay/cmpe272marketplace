@@ -2,87 +2,107 @@ import { useAuth } from "../../hub/function/authentication";
 import { useEffect, useState } from "react";
 import SubmitComments from "../../hub/function/updatecomments";
 import fetchComments from "../../hub/function/getcomment";
-// import ReviewInput from "./ReviewInput";
 import fetchPerProductInfo from "../../hub/function/getPerProductInfo";
+import { endpoint } from "../../hub/config/config";
 
 function WineProfile() {
-    const { productInformations} = useAuth();
-    const [comments, setComments] = useState([]);
+  const { productInformations, setProductInformations, products } = useAuth();
+  const [comments, setComments] = useState([]);
 
-    useEffect(() => {
-        if (productInformations.wine_id || productInformations.cocktail_id) {
-            getAllComments(productInformations.wine_id || productInformations.cocktail_id, productInformations.wine_id ? 'wine' : 'cocktail');
-        }
-    }, [productInformations]);
-
-    const getAllComments = async (productId, productType) => {
-        try {
-            const commentsAll = await fetchComments(productId, productType);
-            setComments(commentsAll);
-        } catch (error) {
-            console.error('Error fetching comments:', error.message);
-        }
+  useEffect(() => {
+    const storedProductInfo = JSON.parse(localStorage.getItem('productInformations'));
+    // const AllProducts = JSON.parse(localStorage.getItem('products')) || products;
+    if (storedProductInfo) {
+      setProductInformations(storedProductInfo);
+      console.log('Updated from localStorage');
     }
+    else{
+    console.log('not updated from localStorage');
+    }
+  }, [setProductInformations]);
+    // useEffect(() => {
+    //     // Fetch product information from the products array
+    //     const storedProductInfo = JSON.parse(localStorage.getItem('productInformations'));
+    //     const product = products?.find(p => p.wine_id === storedProductInfo?.wine_id || p.cocktail_id === storedProductInfo?.cocktail_id);
+    //     if (product) {
+    //         setProductInformations(product);
+    //     }
+    // }, [products, setProductInformations]);
 
-    return (
-        <div style={{ width: '100%', height: 'auto', paddingTop: '80px' }}>
-            <div className="wineprofileinformation">
-                <div className="left">
-                    <img src={productInformations?.image_url} alt={productInformations?.wine_name ? productInformations.wine_name : productInformations?.cocktail_name} />
-                </div>
-                <div className="right">
-                    <div>
-                        <h3> Product Name: {productInformations?.wine_name ? productInformations?.wine_name : productInformations?.cocktail_name}</h3>
-                        <h5 style={{ marginTop: '10px' }}> Price: {productInformations?.price}</h5>
-                        <div style={{ display: 'flex', justifyContent: 'center' }}>
-                            <button style={{ margin: '10px' }}> Add to Cart</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div style={{ width: '100%' }}>
-                <div style={{ width: '100%', backgroundColor: 'aliceblue' }}>
-                    <div style={{ padding: 10 }}>
-                        <h3> STATUS </h3>
-                        <p> Rating Average: {productInformations?.rating_average}</p>
-                        <p> Number of Rating: { productInformations?.number_of_ratings}</p>
-                    </div>
-                </div>
-            </div>
-            <br />
-            <div style={{ width: '100%' }}>
-                <div style={{ width: '100%', backgroundColor: 'aliceblue', height: 'auto' }}>
-                    <div style={{ padding: 10 }}>
-                        <h4> Add Your Review  </h4>
-                        <ReviewInput wine={productInformations?.wine ? productInformations?.wine : productInformations?.cocktail} getAllComments={getAllComments}/>
-                    </div>
-                </div>
-            </div>
-            <br />
-            <div style={{ width: '100%' }}>
-                <div style={{ width: '100%', backgroundColor: 'aliceblue', height: 'auto' }}>
-                    <div style={{ padding: 10 }}>
-                        <h4> Comments </h4>
-                        <br/>
-                        {[...comments].reverse().map((comment, index) => (
-                            <div key={index}>
-                                <div style={{marginBottom: '10px'}}>
-                                    <p> Anonymous</p>
-                                    <br/>
-                                    <li>{comment}</li>
-                                    <div style={{width: '100%', height: '1px', backgroundColor: 'lightgray'}}/>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </div>
+  useEffect(() => {
+    if (productInformations.wine_id || productInformations.cocktail_id) {
+      getAllComments(productInformations.wine_id || productInformations.cocktail_id, productInformations.wine_id ? 'wine' : 'cocktail');
+    }
+  }, [productInformations]);
 
+  const getAllComments = async (productId, productType) => {
+    try {
+      const commentsAll = await fetchComments(productId, productType);
+      setComments(commentsAll);
+    } catch (error) {
+      console.error('Error fetching comments:', error.message);
+    }
+  };
+
+  return (
+    <div style={{ width: '100%', height: 'auto', paddingTop: '80px' }}>
+      <div className="wineprofileinformation">
+        <div className="left">
+          <img src={productInformations?.image_url} alt={productInformations?.wine_name ? productInformations.wine_name : productInformations?.cocktail_name} />
         </div>
-    );
+        <div className="right">
+          <div>
+            <h3> Product Name: {productInformations?.wine_name ? productInformations?.wine_name : productInformations?.cocktail_name}</h3>
+            <h5 style={{ marginTop: '10px' }}> Price: {productInformations?.price}</h5>
+            <div style={{ display: 'flex', justifyContent: 'center' }}>
+              <button style={{ margin: '10px' }}> Add to Cart</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style={{ width: '100%' }}>
+        <div style={{ width: '100%', backgroundColor: 'aliceblue' }}>
+          <div style={{ padding: 10 }}>
+            <h3> STATUS </h3>
+            <p> Rating Average: {productInformations?.rating_average}</p>
+            <p> Number of Rating: {productInformations?.number_of_ratings}</p>
+          </div>
+        </div>
+      </div>
+      <br />
+      <div style={{ width: '100%' }}>
+        <div style={{ width: '100%', backgroundColor: 'aliceblue', height: 'auto' }}>
+          <div style={{ padding: 10 }}>
+            <h4> Add Your Review  </h4>
+            <ReviewInput wine={productInformations?.wine ? productInformations?.wine : productInformations?.cocktail} getAllComments={getAllComments} />
+          </div>
+        </div>
+      </div>
+      <br />
+      <div style={{ width: '100%' }}>
+        <div style={{ width: '100%', backgroundColor: 'aliceblue', height: 'auto' }}>
+          <div style={{ padding: 10 }}>
+            <h4> Comments </h4>
+            <br />
+            {[...comments].reverse().map((comment, index) => (
+              <div key={index}>
+                <div style={{ marginBottom: '10px' }}>
+                  <p> Anonymous</p>
+                  <br />
+                  <li>{comment}</li>
+                  <div style={{ width: '100%', height: '1px', backgroundColor: 'lightgray' }} />
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 }
 
 export default WineProfile;
+
 
 
 const ReviewInput = ({ wine, getAllComments}) => {
@@ -90,7 +110,7 @@ const ReviewInput = ({ wine, getAllComments}) => {
     const [review, setReview] = useState('');
     const [rating, setRating] = useState(0);
     const [emoji, setEmoji] = useState('');
-    const { isReviewed, setIsReviewed, setProductInformations, setRefreshProducts } = useAuth();
+    const { isReviewed, setIsReviewed, setProductInformations, setRefreshProducts, setProducts } = useAuth();
 
     const handleKeyDown = (e) => {
         e.preventDefault(); // Prevent default behavior of adding a new line in the input field
@@ -130,21 +150,22 @@ const ReviewInput = ({ wine, getAllComments}) => {
         const productType = productInformations.wine_id ? 'wine' : 'cocktail';
         fetchPerProductInfo(productId, productType)
             .then(newPerProductItem => {
-                setProductInformations({...productInformations, 
-                    rating_average: newPerProductItem.productInfo[0].rating_average || productInformations.rating_average,
-                    number_of_ratings: newPerProductItem.productInfo[0].number_of_ratings || productInformations.number_of_ratings});
+
+                setProductInformations(newPerProductItem.productInfo[0] ?   newPerProductItem.productInfo[0] : productInformations)
+                localStorage.setItem('productInformations', JSON.stringify(newPerProductItem.productInfo[0]));
             })
             .catch(error => console.error('Error fetching product information:', error.message));
     
         // setRefreshProduct(true);
             // Fetch comments again to ensure they are up-to-date
             await getAllComments(wineId || cocktailId, wineId ? 'wine' : 'cocktail');
+  
             setRefreshProducts(true);
         } catch (error) {
             console.error('Error updating comments:', error.message);
         }
     }
-    
+
 
     const getEmoji = (num) => {
         switch (num) {

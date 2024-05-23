@@ -7,30 +7,36 @@ import { useAuth } from "../../hub/function/authentication";
 import GetVisitedProducts from "../../wine/components/visitedProduct";
 
 function WineProducts() {
-  const [products, setProducts] = useState(JSON.parse(sessionStorage.getItem('products')) || []);
-  const {productInformations, setProductInformations, isReviewed, setIsReviewed, refreshProducts, setRefreshProducts} = useAuth();
-  useEffect(() => {
-      if(refreshProducts){
-      fetchProducts();
-      setRefreshProducts(false);
-      console.log('All products have been fetched');
-      }
-      setIsReviewed(false);
-      console.log('All products have not been fetched');
-
+  // const [products, setProducts] = useState(JSON.parse(localStorage.getItem('products')) || []);
+  const {products, setProducts, productInformations, setProductInformations, isReviewed, setIsReviewed, refreshProducts, setRefreshProducts} = useAuth();
+  // useEffect(() => {
+  //     if(refreshProducts){
+  //     fetchProducts();
+  //     setRefreshProducts(false);
+  //     // console.log('All products have been fetched');
+  //     }
+  //     else{setIsReviewed(false);
+  //     // console.log('All products have not been fetched');
+  //     }
    
-  }, [refreshProducts]); // Empty dependency array to ensure useEffect runs only once
+  // }, [refreshProducts]);
 
-  const fetchProducts = () => {
-    fetch(`${endpoint}/products`)
-      .then(response => response.json())
-      .then(data => {
-        setProducts(data);
-        console.log(data)
-        sessionStorage.setItem('products', JSON.stringify(data));
-      })
-      .catch(error => console.error(error));
-  }
+  // useEffect(() => {
+  //   fetchProducts();
+    
+  // }, []);
+
+  // const fetchProducts = () => {
+  //   fetch(`${endpoint}/products`)
+  //     .then(response => response.json())
+  //     .then(data => {
+  //       setProducts(data);
+  //       // console.log(data)
+  //       localStorage.setItem('products', JSON.stringify(data));
+  //       console.log('All data is being fetch');
+  //     })
+  //     .catch(error => console.error(error));
+  // }
   return (
     <div className="wineProducts">
       <div style={{ textAlign: 'center', margin: '50px' }}>
@@ -71,17 +77,14 @@ function DisplayCard({ data, setProductInformations, setRefreshProduct }) {
 
     const handleSeeProfile = (prod) => {
       setProductInformations(prod);
-      localStorage.setItem('productInformations', prod);
-      // navigate("/products/wine/wineprofile"); // Navigate after setting product information
-      // Determine whether the product is wine or cocktail and navigate accordingly
+      localStorage.setItem('productInformations', JSON.stringify(prod)); // Store as a JSON string
       if (prod.wine_id) {
-        console.log(prod.wine_name);
         navigate(`/products/wine/wineprofile/wine/${prod.wine_name}/${prod.wine_id}`);
       } else if (prod.cocktail_id) {
-        console.log(prod.cocktail_name);
         navigate(`/products/wine/wineprofile/cocktail/${prod.cocktail_name}/${prod.cocktail_id}`);
       }
     };
+    
   
   
     return (

@@ -10,8 +10,9 @@ export function useAuth() {
 
 export function AuthProvider(props) {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  // const [products, setProducts] = useState(localStorage.getItem('products') ? localStorage.getItem('products') : []);
+  const [products, setProducts] = useState();
   const [user, setUser] = useState(null);
-//   const [toggleLogon, setToggleLogon] = useState('Login');
   const [toggleLogon, setToggleLogon] = useState(
     localStorage.getItem('isAuthenticated') === 'true' ? 'Logout' : 'Login'
   );
@@ -24,6 +25,8 @@ export function AuthProvider(props) {
   const [isReviewed, setIsReviewed] = useState(false);
   const [refreshProducts, setRefreshProducts] = useState(false);
 
+
+
   useEffect(() => {
     const storedUser = localStorage.getItem('user');
     if (storedUser !== null && storedUser !== 'undefined') {
@@ -31,7 +34,26 @@ export function AuthProvider(props) {
       setIsAuthenticated(true);
     }
   }, []);
-  
+
+  useEffect(() => {
+    if(!products){
+    fetchProducts();
+    // console.log('All products have been fetched when page is loaded');
+    }
+    else{
+      // console.log('All products have not been fetched on loaded');
+    }
+  },[]);
+  const fetchProducts = () => {
+    fetch(`${endpoint}/products`)
+      .then(response => response.json())
+      .then(data => {
+        setProducts(data);
+        // console.log(data)
+        localStorage.setItem('products', JSON.stringify(data));
+      })
+      .catch(error => console.error(error));
+  }
   const login = async (email, password) => {
     try {
       const response = await fetch(`${endpoint}/login?email=${encodeURIComponent(email)}&password=${encodeURIComponent(password)}`);
@@ -106,7 +128,7 @@ export function AuthProvider(props) {
 
 
   return (
-    <AuthContext.Provider value={{isAuthenticated, user, login, logout, toggleLogon, signup, productInformations, setProductInformations, comments, setComments, isReviewed, setIsReviewed, refreshProducts, setRefreshProducts}}>
+    <AuthContext.Provider value={{isAuthenticated, user, login, logout, toggleLogon, signup, productInformations, setProductInformations, comments, setComments, isReviewed, setIsReviewed, refreshProducts, setRefreshProducts, products, setProducts}}>
       {props.children}
     </AuthContext.Provider>
   );
