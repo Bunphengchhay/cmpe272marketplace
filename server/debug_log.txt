@@ -1,0 +1,1395 @@
+Data from endpoint1:
+Array
+(
+    [0] => Array
+        (
+            [name] => crab
+            [pageviews] => 10
+        )
+
+    [1] => Array
+        (
+            [name] => hat
+            [pageviews] => 4
+        )
+
+    [2] => Array
+        (
+            [name] => pants
+            [pageviews] => 2
+        )
+
+    [3] => Array
+        (
+            [name] => shirt
+            [pageviews] => 1
+        )
+
+    [4] => Array
+        (
+            [name] => shoes
+            [pageviews] => 1
+        )
+
+)
+
+Data from endpoint2:
+Array
+(
+)
+
+Combined data:
+Array
+(
+    [0] => Array
+        (
+            [name] => crab
+            [pageviews] => 10
+        )
+
+    [1] => Array
+        (
+            [name] => hat
+            [pageviews] => 4
+        )
+
+    [2] => Array
+        (
+            [name] => pants
+            [pageviews] => 2
+        )
+
+    [3] => Array
+        (
+            [name] => shirt
+            [pageviews] => 1
+        )
+
+    [4] => Array
+        (
+            [name] => shoes
+            [pageviews] => 1
+        )
+
+)
+
+Data from endpoint1:
+Array
+(
+    [0] => Array
+        (
+            [name] => crab
+            [pageviews] => 10
+        )
+
+    [1] => Array
+        (
+            [name] => hat
+            [pageviews] => 4
+        )
+
+    [2] => Array
+        (
+            [name] => pants
+            [pageviews] => 2
+        )
+
+    [3] => Array
+        (
+            [name] => shirt
+            [pageviews] => 1
+        )
+
+    [4] => Array
+        (
+            [name] => shoes
+            [pageviews] => 1
+        )
+
+)
+
+Data from endpoint2:
+Array
+(
+)
+
+Combined data:
+Array
+(
+    [0] => Array
+        (
+            [name] => crab
+            [pageviews] => 10
+        )
+
+    [1] => Array
+        (
+            [name] => hat
+            [pageviews] => 4
+        )
+
+    [2] => Array
+        (
+            [name] => pants
+            [pageviews] => 2
+        )
+
+    [3] => Array
+        (
+            [name] => shirt
+            [pageviews] => 1
+        )
+
+    [4] => Array
+        (
+            [name] => shoes
+            [pageviews] => 1
+        )
+
+)
+
+Data from endpoint1:
+Array
+(
+    [0] => Array
+        (
+            [name] => crab
+            [pageviews] => 10
+        )
+
+    [1] => Array
+        (
+            [name] => hat
+            [pageviews] => 4
+        )
+
+    [2] => Array
+        (
+            [name] => pants
+            [pageviews] => 2
+        )
+
+    [3] => Array
+        (
+            [name] => shirt
+            [pageviews] => 1
+        )
+
+    [4] => Array
+        (
+            [name] => shoes
+            [pageviews] => 1
+        )
+
+)
+
+Data from endpoint2:
+Array
+(
+)
+
+Combined data:
+Array
+(
+    [0] => Array
+        (
+            [name] => crab
+            [pageviews] => 10
+        )
+
+    [1] => Array
+        (
+            [name] => hat
+            [pageviews] => 4
+        )
+
+    [2] => Array
+        (
+            [name] => pants
+            [pageviews] => 2
+        )
+
+    [3] => Array
+        (
+            [name] => shirt
+            [pageviews] => 1
+        )
+
+    [4] => Array
+        (
+            [name] => shoes
+            [pageviews] => 1
+        )
+
+)
+
+Data from endpoint1:
+Array
+(
+    [0] => Array
+        (
+            [name] => crab
+            [pageviews] => 10
+        )
+
+    [1] => Array
+        (
+            [name] => hat
+            [pageviews] => 4
+        )
+
+    [2] => Array
+        (
+            [name] => pants
+            [pageviews] => 2
+        )
+
+    [3] => Array
+        (
+            [name] => shirt
+            [pageviews] => 1
+        )
+
+    [4] => Array
+        (
+            [name] => shoes
+            [pageviews] => 1
+        )
+
+)
+
+Data from endpoint1:
+Array
+(
+    [0] => Array
+        (
+            [name] => crab
+            [pageviews] => 10
+        )
+
+    [1] => Array
+        (
+            [name] => hat
+            [pageviews] => 4
+        )
+
+    [2] => Array
+        (
+            [name] => pants
+            [pageviews] => 2
+        )
+
+    [3] => Array
+        (
+            [name] => shirt
+            [pageviews] => 1
+        )
+
+    [4] => Array
+        (
+            [name] => shoes
+            [pageviews] => 1
+        )
+
+)
+
+Data from endpoint1:
+Array
+(
+    [0] => Array
+        (
+            [name] => crab
+            [pageviews] => 10
+        )
+
+    [1] => Array
+        (
+            [name] => hat
+            [pageviews] => 4
+        )
+
+    [2] => Array
+        (
+            [name] => pants
+            [pageviews] => 2
+        )
+
+    [3] => Array
+        (
+            [name] => shirt
+            [pageviews] => 1
+        )
+
+    [4] => Array
+        (
+            [name] => shoes
+            [pageviews] => 1
+        )
+
+)
+
+Data from endpoint2:
+Array
+(
+)
+
+Combined data:
+Array
+(
+    [0] => Array
+        (
+            [name] => crab
+            [pageviews] => 10
+        )
+
+    [1] => Array
+        (
+            [name] => hat
+            [pageviews] => 4
+        )
+
+    [2] => Array
+        (
+            [name] => pants
+            [pageviews] => 2
+        )
+
+    [3] => Array
+        (
+            [name] => shirt
+            [pageviews] => 1
+        )
+
+    [4] => Array
+        (
+            [name] => shoes
+            [pageviews] => 1
+        )
+
+)
+
+Data from endpoint1:
+Array
+(
+    [0] => Array
+        (
+            [name] => crab
+            [pageviews] => 10
+        )
+
+    [1] => Array
+        (
+            [name] => hat
+            [pageviews] => 4
+        )
+
+    [2] => Array
+        (
+            [name] => pants
+            [pageviews] => 2
+        )
+
+    [3] => Array
+        (
+            [name] => shirt
+            [pageviews] => 1
+        )
+
+    [4] => Array
+        (
+            [name] => shoes
+            [pageviews] => 1
+        )
+
+)
+
+Data from endpoint2:
+Array
+(
+)
+
+Combined data:
+Array
+(
+    [0] => Array
+        (
+            [name] => crab
+            [pageviews] => 10
+        )
+
+    [1] => Array
+        (
+            [name] => hat
+            [pageviews] => 4
+        )
+
+    [2] => Array
+        (
+            [name] => pants
+            [pageviews] => 2
+        )
+
+    [3] => Array
+        (
+            [name] => shirt
+            [pageviews] => 1
+        )
+
+    [4] => Array
+        (
+            [name] => shoes
+            [pageviews] => 1
+        )
+
+)
+
+Data from endpoint1:
+Array
+(
+    [0] => Array
+        (
+            [name] => crab
+            [pageviews] => 10
+        )
+
+    [1] => Array
+        (
+            [name] => hat
+            [pageviews] => 4
+        )
+
+    [2] => Array
+        (
+            [name] => pants
+            [pageviews] => 2
+        )
+
+    [3] => Array
+        (
+            [name] => shirt
+            [pageviews] => 1
+        )
+
+    [4] => Array
+        (
+            [name] => shoes
+            [pageviews] => 1
+        )
+
+)
+
+Data from endpoint2:
+Array
+(
+)
+
+Combined data:
+Array
+(
+    [0] => Array
+        (
+            [name] => crab
+            [pageviews] => 10
+        )
+
+    [1] => Array
+        (
+            [name] => hat
+            [pageviews] => 4
+        )
+
+    [2] => Array
+        (
+            [name] => pants
+            [pageviews] => 2
+        )
+
+    [3] => Array
+        (
+            [name] => shirt
+            [pageviews] => 1
+        )
+
+    [4] => Array
+        (
+            [name] => shoes
+            [pageviews] => 1
+        )
+
+)
+
+Data from endpoint1:
+Array
+(
+    [0] => Array
+        (
+            [name] => crab
+            [pageviews] => 10
+        )
+
+    [1] => Array
+        (
+            [name] => hat
+            [pageviews] => 4
+        )
+
+    [2] => Array
+        (
+            [name] => pants
+            [pageviews] => 2
+        )
+
+    [3] => Array
+        (
+            [name] => shirt
+            [pageviews] => 1
+        )
+
+    [4] => Array
+        (
+            [name] => shoes
+            [pageviews] => 1
+        )
+
+)
+
+Data from endpoint2:
+Array
+(
+)
+
+Combined data:
+Array
+(
+    [0] => Array
+        (
+            [name] => crab
+            [pageviews] => 10
+        )
+
+    [1] => Array
+        (
+            [name] => hat
+            [pageviews] => 4
+        )
+
+    [2] => Array
+        (
+            [name] => pants
+            [pageviews] => 2
+        )
+
+    [3] => Array
+        (
+            [name] => shirt
+            [pageviews] => 1
+        )
+
+    [4] => Array
+        (
+            [name] => shoes
+            [pageviews] => 1
+        )
+
+)
+
+Data from endpoint1:
+Array
+(
+    [0] => Array
+        (
+            [name] => crab
+            [pageviews] => 10
+        )
+
+    [1] => Array
+        (
+            [name] => hat
+            [pageviews] => 4
+        )
+
+    [2] => Array
+        (
+            [name] => pants
+            [pageviews] => 2
+        )
+
+    [3] => Array
+        (
+            [name] => shirt
+            [pageviews] => 1
+        )
+
+    [4] => Array
+        (
+            [name] => shoes
+            [pageviews] => 1
+        )
+
+)
+
+Data from endpoint2:
+Array
+(
+)
+
+Combined data:
+Array
+(
+    [0] => Array
+        (
+            [name] => crab
+            [pageviews] => 10
+        )
+
+    [1] => Array
+        (
+            [name] => hat
+            [pageviews] => 4
+        )
+
+    [2] => Array
+        (
+            [name] => pants
+            [pageviews] => 2
+        )
+
+    [3] => Array
+        (
+            [name] => shirt
+            [pageviews] => 1
+        )
+
+    [4] => Array
+        (
+            [name] => shoes
+            [pageviews] => 1
+        )
+
+)
+
+Data from endpoint1:
+Array
+(
+    [0] => Array
+        (
+            [name] => crab
+            [pageviews] => 10
+        )
+
+    [1] => Array
+        (
+            [name] => hat
+            [pageviews] => 4
+        )
+
+    [2] => Array
+        (
+            [name] => pants
+            [pageviews] => 2
+        )
+
+    [3] => Array
+        (
+            [name] => shirt
+            [pageviews] => 1
+        )
+
+    [4] => Array
+        (
+            [name] => shoes
+            [pageviews] => 1
+        )
+
+)
+
+Data from endpoint2:
+Array
+(
+)
+
+Combined data:
+Array
+(
+    [0] => Array
+        (
+            [name] => crab
+            [pageviews] => 10
+        )
+
+    [1] => Array
+        (
+            [name] => hat
+            [pageviews] => 4
+        )
+
+    [2] => Array
+        (
+            [name] => pants
+            [pageviews] => 2
+        )
+
+    [3] => Array
+        (
+            [name] => shirt
+            [pageviews] => 1
+        )
+
+    [4] => Array
+        (
+            [name] => shoes
+            [pageviews] => 1
+        )
+
+)
+
+Data from endpoint1:
+Array
+(
+    [0] => Array
+        (
+            [name] => crab
+            [pageviews] => 10
+        )
+
+    [1] => Array
+        (
+            [name] => hat
+            [pageviews] => 4
+        )
+
+    [2] => Array
+        (
+            [name] => pants
+            [pageviews] => 2
+        )
+
+    [3] => Array
+        (
+            [name] => shirt
+            [pageviews] => 1
+        )
+
+    [4] => Array
+        (
+            [name] => shoes
+            [pageviews] => 1
+        )
+
+)
+
+Data from endpoint2:
+Array
+(
+)
+
+Combined data:
+Array
+(
+    [0] => Array
+        (
+            [name] => crab
+            [pageviews] => 10
+        )
+
+    [1] => Array
+        (
+            [name] => hat
+            [pageviews] => 4
+        )
+
+    [2] => Array
+        (
+            [name] => pants
+            [pageviews] => 2
+        )
+
+    [3] => Array
+        (
+            [name] => shirt
+            [pageviews] => 1
+        )
+
+    [4] => Array
+        (
+            [name] => shoes
+            [pageviews] => 1
+        )
+
+)
+
+Data from endpoint1:
+Array
+(
+    [0] => Array
+        (
+            [name] => crab
+            [pageviews] => 10
+        )
+
+    [1] => Array
+        (
+            [name] => hat
+            [pageviews] => 4
+        )
+
+    [2] => Array
+        (
+            [name] => pants
+            [pageviews] => 2
+        )
+
+    [3] => Array
+        (
+            [name] => shirt
+            [pageviews] => 1
+        )
+
+    [4] => Array
+        (
+            [name] => shoes
+            [pageviews] => 1
+        )
+
+)
+
+Data from endpoint2:
+Array
+(
+)
+
+Combined data:
+Array
+(
+    [0] => Array
+        (
+            [name] => crab
+            [pageviews] => 10
+        )
+
+    [1] => Array
+        (
+            [name] => hat
+            [pageviews] => 4
+        )
+
+    [2] => Array
+        (
+            [name] => pants
+            [pageviews] => 2
+        )
+
+    [3] => Array
+        (
+            [name] => shirt
+            [pageviews] => 1
+        )
+
+    [4] => Array
+        (
+            [name] => shoes
+            [pageviews] => 1
+        )
+
+)
+
+Data from endpoint1:
+Array
+(
+    [0] => Array
+        (
+            [name] => crab
+            [pageviews] => 10
+        )
+
+    [1] => Array
+        (
+            [name] => hat
+            [pageviews] => 4
+        )
+
+    [2] => Array
+        (
+            [name] => pants
+            [pageviews] => 2
+        )
+
+    [3] => Array
+        (
+            [name] => shirt
+            [pageviews] => 1
+        )
+
+    [4] => Array
+        (
+            [name] => shoes
+            [pageviews] => 1
+        )
+
+)
+
+Data from endpoint2:
+Array
+(
+)
+
+Combined data:
+Array
+(
+    [0] => Array
+        (
+            [name] => crab
+            [pageviews] => 10
+        )
+
+    [1] => Array
+        (
+            [name] => hat
+            [pageviews] => 4
+        )
+
+    [2] => Array
+        (
+            [name] => pants
+            [pageviews] => 2
+        )
+
+    [3] => Array
+        (
+            [name] => shirt
+            [pageviews] => 1
+        )
+
+    [4] => Array
+        (
+            [name] => shoes
+            [pageviews] => 1
+        )
+
+)
+
+Data from endpoint1:
+Array
+(
+    [0] => Array
+        (
+            [name] => crab
+            [type] => crab
+            [pageviews] => 14
+        )
+
+    [1] => Array
+        (
+            [name] => hat
+            [type] => crab
+            [pageviews] => 7
+        )
+
+    [2] => Array
+        (
+            [name] => shirt
+            [type] => crab
+            [pageviews] => 3
+        )
+
+    [3] => Array
+        (
+            [name] => pants
+            [type] => crab
+            [pageviews] => 3
+        )
+
+    [4] => Array
+        (
+            [name] => shoes
+            [type] => crab
+            [pageviews] => 2
+        )
+
+)
+
+Data from endpoint2:
+Array
+(
+)
+
+Combined data:
+Array
+(
+    [0] => Array
+        (
+            [name] => crab
+            [type] => crab
+            [pageviews] => 14
+        )
+
+    [1] => Array
+        (
+            [name] => hat
+            [type] => crab
+            [pageviews] => 7
+        )
+
+    [2] => Array
+        (
+            [name] => shirt
+            [type] => crab
+            [pageviews] => 3
+        )
+
+    [3] => Array
+        (
+            [name] => pants
+            [type] => crab
+            [pageviews] => 3
+        )
+
+    [4] => Array
+        (
+            [name] => shoes
+            [type] => crab
+            [pageviews] => 2
+        )
+
+)
+
+Data from endpoint1:
+Array
+(
+    [0] => Array
+        (
+            [name] => crab
+            [type] => crab
+            [pageviews] => 14
+        )
+
+    [1] => Array
+        (
+            [name] => hat
+            [type] => crab
+            [pageviews] => 7
+        )
+
+    [2] => Array
+        (
+            [name] => shirt
+            [type] => crab
+            [pageviews] => 3
+        )
+
+    [3] => Array
+        (
+            [name] => pants
+            [type] => crab
+            [pageviews] => 3
+        )
+
+    [4] => Array
+        (
+            [name] => shoes
+            [type] => crab
+            [pageviews] => 2
+        )
+
+)
+
+Data from endpoint2:
+Array
+(
+)
+
+Combined data:
+Array
+(
+    [0] => Array
+        (
+            [name] => crab
+            [type] => crab
+            [pageviews] => 14
+        )
+
+    [1] => Array
+        (
+            [name] => hat
+            [type] => crab
+            [pageviews] => 7
+        )
+
+    [2] => Array
+        (
+            [name] => shirt
+            [type] => crab
+            [pageviews] => 3
+        )
+
+    [3] => Array
+        (
+            [name] => pants
+            [type] => crab
+            [pageviews] => 3
+        )
+
+    [4] => Array
+        (
+            [name] => shoes
+            [type] => crab
+            [pageviews] => 2
+        )
+
+)
+
+Data from endpoint1:
+Array
+(
+    [0] => Array
+        (
+            [name] => crab
+            [type] => crab
+            [pageviews] => 14
+        )
+
+    [1] => Array
+        (
+            [name] => hat
+            [type] => crab
+            [pageviews] => 7
+        )
+
+    [2] => Array
+        (
+            [name] => shirt
+            [type] => crab
+            [pageviews] => 3
+        )
+
+    [3] => Array
+        (
+            [name] => pants
+            [type] => crab
+            [pageviews] => 3
+        )
+
+    [4] => Array
+        (
+            [name] => shoes
+            [type] => crab
+            [pageviews] => 2
+        )
+
+)
+
+Data from endpoint2:
+Array
+(
+)
+
+Combined data:
+Array
+(
+    [0] => Array
+        (
+            [name] => crab
+            [type] => crab
+            [pageviews] => 14
+        )
+
+    [1] => Array
+        (
+            [name] => hat
+            [type] => crab
+            [pageviews] => 7
+        )
+
+    [2] => Array
+        (
+            [name] => shirt
+            [type] => crab
+            [pageviews] => 3
+        )
+
+    [3] => Array
+        (
+            [name] => pants
+            [type] => crab
+            [pageviews] => 3
+        )
+
+    [4] => Array
+        (
+            [name] => shoes
+            [type] => crab
+            [pageviews] => 2
+        )
+
+)
+
+Data from endpoint1:
+Array
+(
+    [0] => Array
+        (
+            [name] => crab
+            [type] => crab
+            [pageviews] => 14
+        )
+
+    [1] => Array
+        (
+            [name] => hat
+            [type] => crab
+            [pageviews] => 7
+        )
+
+    [2] => Array
+        (
+            [name] => shirt
+            [type] => crab
+            [pageviews] => 3
+        )
+
+    [3] => Array
+        (
+            [name] => pants
+            [type] => crab
+            [pageviews] => 3
+        )
+
+    [4] => Array
+        (
+            [name] => shoes
+            [type] => crab
+            [pageviews] => 2
+        )
+
+)
+
+Data from endpoint2:
+Array
+(
+)
+
+Combined data:
+Array
+(
+    [0] => Array
+        (
+            [name] => crab
+            [type] => crab
+            [pageviews] => 14
+        )
+
+    [1] => Array
+        (
+            [name] => hat
+            [type] => crab
+            [pageviews] => 7
+        )
+
+    [2] => Array
+        (
+            [name] => shirt
+            [type] => crab
+            [pageviews] => 3
+        )
+
+    [3] => Array
+        (
+            [name] => pants
+            [type] => crab
+            [pageviews] => 3
+        )
+
+    [4] => Array
+        (
+            [name] => shoes
+            [type] => crab
+            [pageviews] => 2
+        )
+
+)
+
+Data from endpoint1:
+Array
+(
+    [0] => Array
+        (
+            [name] => crab
+            [type] => crab
+            [pageviews] => 14
+        )
+
+    [1] => Array
+        (
+            [name] => hat
+            [type] => crab
+            [pageviews] => 7
+        )
+
+    [2] => Array
+        (
+            [name] => shirt
+            [type] => crab
+            [pageviews] => 3
+        )
+
+    [3] => Array
+        (
+            [name] => pants
+            [type] => crab
+            [pageviews] => 3
+        )
+
+    [4] => Array
+        (
+            [name] => shoes
+            [type] => crab
+            [pageviews] => 2
+        )
+
+)
+
+Data from endpoint2:
+Array
+(
+)
+
+Combined data:
+Array
+(
+    [0] => Array
+        (
+            [name] => crab
+            [type] => crab
+            [pageviews] => 14
+        )
+
+    [1] => Array
+        (
+            [name] => hat
+            [type] => crab
+            [pageviews] => 7
+        )
+
+    [2] => Array
+        (
+            [name] => shirt
+            [type] => crab
+            [pageviews] => 3
+        )
+
+    [3] => Array
+        (
+            [name] => pants
+            [type] => crab
+            [pageviews] => 3
+        )
+
+    [4] => Array
+        (
+            [name] => shoes
+            [type] => crab
+            [pageviews] => 2
+        )
+
+)
+

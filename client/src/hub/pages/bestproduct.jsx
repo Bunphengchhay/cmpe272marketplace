@@ -27,6 +27,40 @@ function BestProducts() {
     fetchData();
   }, []);
 
+  useEffect(() => {
+    const endpoint1 = 'http://hugecrab.com/products/visitJson.php';
+
+// Fetch data from the endpoint
+    fetchData(endpoint1).then(data => {
+    if (data) {
+        console.log('Data from endpoint1:', data);
+    } else {
+        console.log('No data fetched or an error occurred');
+    }
+});
+  }, []);
+
+  async function fetchData(url) {
+    try {
+      const response = await fetch(url, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+  
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+  
+      const data = await response.json();
+      console.log('Fetched data:', data);
+      return data;
+    } catch (error) {
+      console.error('Fetch error:', error);
+      return null;
+    }
+  }
   const getTwoVisitedProducts = async () => {
     try {
       const data = await twoMarketTraffics();
